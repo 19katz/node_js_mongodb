@@ -11,10 +11,6 @@ as well as other functionalities offered by express.
 const express = require("express");
 const app = express();
 
-// Used to load variables from .env file.
-const dotenv = require("dotenv");
-dotenv.config();
-
 // Imports Mongoose for using MongoDB
 const mongoose = require("mongoose");
 
@@ -130,5 +126,5 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     // specified host and port. We also log to the console to
     // confirm that the website is up and running.
     // We only call listen once a connection to the MongoDB server is made.
-    app.listen(PORT, () => console.log("Server Up and running"));
+    app.listen(PORT, () => console.log("Server Up and running on " + PORT));
 });
