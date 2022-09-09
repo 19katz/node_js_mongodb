@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--This file contains HTML/JS for the todo list app when a todo is being
+edited. It contains a form for submitting a new todo name or removing it. -->
+<head>
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <div class="todo">
+            <!--This form is the same as before, for submitting new todos.-->
+            <form action="" method="POST" class="todo-header">
+                <input type="text" name="content">
+                <button type="submit"><span class="fas fa-plus"></span></button>
+            </form>
+            <ul class="todo-list">
+                <!--Again, JS code is inserted in the HTML to help render the 
+                todo-list tasks.-->
+                <% todoTasks.forEach(details => { %>
+                    <!--Now, if the task has the id that was passed in as the parameter
+                    idTask when rendering this "edit" page in its get method, then 
+                    display a form to submit a new task.-->
+                    <% if (details._id == idTask) { %>
+                    <li class="todo-list-item">
+                        <form action="/edit/<%= details._id %>" method="POST">
+                            <input type="text" value="<%= details.content %>" name="content">
+                            <button type="submit">Confirm</button>
+                            <a href="/" class="cancel">Cancel</a>
+                        </form>
+                    </li>
+                    <% } else { %>
+                    <li class="todo-list-item">
+                        <div class="todo-list-item-name"><%= details.content %></div>
+                        <a href="/edit/<%= details._id %>" class="edit"> <span class="fas fa-edit"></span>
+                        </a>
+                        <a href="/remove/<%= details._id %>" class="remove"> <span class="fas fa-times"></span>
+                        </a>
+                    </li>
+                    <% } %>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,138 @@
+/* Set some general margins, padding, etc. for the entire site */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Create a background color for the entire body of the website */
+body {
+    background: #e27442;
+}
+
+/* Styling for the container that has the title and input form 
+for adding todos. 
+
+Most of these styling components concern the padding and color.
+
+Setting position to be absolute fixes its position outside of the normal flow of the document
+The options referring to "flex" creates better alignment in document layout.
+*/
+.todo-container {
+    color: white;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    padding: 20px;
+    width: 600px;
+    transform: translate(-50%,-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* This block styles the "todo" div, which contains the input form.*/
+.todo {
+    width: 400px;
+}
+
+/* Styles and gives fonts to the title. */
+.todo-container h2 {
+    padding: 10px;
+    font-family: 'Candal', sans-serif;
+    font-size: 2em;
+}
+
+/* Styles and gives fonts to the input box. */
+.todo-header input {
+    width: 92%;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    font-family: 'Candal', sans-serif;
+}
+
+/* Styles and gives fonts to the button for submitting a new todo in todo.ejs. */
+.todo-header button {
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+    font-family: 'Candal', sans-serif;
+    background-color: rgb(51, 212, 100);
+}
+
+/* Styling for the list and list items. */
+.todo-container ul {
+    list-style: none;
+}
+
+.todo-list-item {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Candal', sans-serif;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row;
+}
+
+.todo-list-item form {
+    width: 100%;
+    display: flex;
+}
+
+/* Styles the text in the list item. */
+.todo-list-item input {
+    flex-grow: 2;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Candal', sans-serif;
+}
+
+.todo-list-item div {
+    flex-grow: 2;
+}
+
+/* Styling for the submit and cancel buttons in todoEdit.ejs,
+which are used to rename and submit a new name for a todo. */
+.todo-list-item button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: 'Candal', sans-serif;
+    background-color: rgb(51, 212, 100);
+}
+
+.todo-list-item .cancel {
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: 'Candal', sans-serif;
+    background-color: rgb(223, 43, 43);
+    margin-left: 5px;
+}
+
+/* Styling for the edit and remove links next to each list item. */
+.todo-list-item .edit {
+    color : rgb(143, 233, 58);
+    margin-right: 10px;
+    cursor:pointer;
+    text-decoration: none;
+}
+.todo-list-item .remove {
+    color : rgb(243, 96, 96);
+    margin-right: 5px;
+    cursor:pointer;
+    text-decoration: none;
+}

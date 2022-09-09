@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Todo App</title>
+    <!--links to the CSS style sheet-->
+    <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
+    <!--imports fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <div class="todo">
+            <!--POST submits data to be processed from this HTML form to be updated in a remote resource.-->
+            <!--Note that a "form" element is used here to contain the input.-->
+            <!--The form specifies that the input will be sent in the body of the HTTP request (using POST).-->
+            <form action="/" method="POST" class="todo-header">
+                <input type="text" name="content">
+                <!--Makes a button in the shape of an add symbol-->
+                <button type="submit"><span class="fas fa-plus"></span></button>
+            </form>
+            <ul class="todo-list">
+                <!--This segment of code contains some embedded JS (indicated by tags) -->
+                <!--In this case, for each of the todoTasks (passed from the TodoTask MongoDB collection)
+                a todo-list item is created that displays the content of each todo as a row in the list.-->
+                <!--Each list item also contains link buttons for editing and removing the todo-->
+                <% todoTasks.forEach(details => { %>
+                <li class="todo-list-item">
+                    <div class="todo-list-item-name"><%= details.content %></div>
+                    <!--Clicking this brings the user to the link below, with the id from
+                    the todo item being extracted to be used in the URL and in the GET method in index.js.
+                    This will bring us to the interface in todoEdit.js to edit the todo item.-->
+                    <a href="/edit/<%= details._id %>" class="edit">
+                        <span class="fas fa-edit"></span>
+                    </a>
+                    <!--Clicking this brings the user to the link below, with the id from
+                    the todo item being extracted to be used in the URL and in the GET method in index.js.
+                    This will simply delete the todo item from the MongoDB collection and rerender
+                    the page, causing it to disappear.-->
+                    <a href="/remove/<%= details._id %>" class="remove">
+                        <span class="fas fa-times"></span>
+                    </a>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
