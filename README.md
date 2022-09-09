@@ -5,7 +5,7 @@ their todos after adding them.
 
 ## Reflection
 
-One of the most significant contributions of Node.js and MongoDB is the connection from client to server that is created, and thus the use of HTTP GET/POST requests to submit forms, as well as the use of a collection stored in a MongoDB database. Previously, todo-list items were just displayed on the website, not stored or retrieved from any other place. Additionally, the use of EJS allowed a better and easier integration of Javascript into HTML, whereas previously, there were some workarounds and repeated JS code necessary to integrate JS into plain HTML/CSS. Overall, this set of technologies is more versatile and allows for information to be shared and saved -- for instance, now, whenever the website is restarted and opened, the data is maintained, as it is stored in MongoDB, while this was not the case previously.
+One of the most significant contributions of Node.js and MongoDB is the connection from client to server that is created, and thus the use of HTTP GET/POST requests to submit forms, as well as the use of a collection stored in a MongoDB database. Previously, todo-list items were just displayed on the website, not stored or retrieved from any other place. Additionally, the use of EJS allowed a better and easier integration of Javascript into HTML, whereas previously, there were some workarounds and repeated JS code necessary to integrate JS into plain HTML/CSS. Overall, this set of technologies is more versatile and allows for information to be shared and saved -- for instance, now, whenever the website is restarted and opened, the data is maintained, as it is stored in MongoDB, while this was not the case previously. 
 
 ## Usage
 
